@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %} <!--<Access navbar.html to all pages  >-->
+{% load static %}<!--<load all static files  to this file  >-->
+{% block content %}<!--<open container  >-->
+<body style="background:url('static/images/coins.jpg');background-size:1350px;
+background-attachment:fixed;
+  background-position:center;">
+
+<link rel="stylesheet" href="{% static 'css/add_expense.css' %}"><!--<access add_expense.css to this file  >-->
+
+<div class="container">
+    <h2 align="center">Add expense</h2>
+        <form action="saveexpensedata" method="post">
+            {% csrf_token %}
+            <select class="custom-select paddown" name="name"><!--< Boot strap class >-->
+
+                <!--            <option selected>Open this select menu</option>-->
+                {% for i in data %}
+                <option value="{{i.firstname }}">{{ i.firstname }}</option>
+                {% endfor %}
+            </select>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Purpose" name="purpose" required><!--< Boot strap class >-->
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Expense" name="expense" required><!--< Boot strap class >-->
+            </div>
+            <div class="form-group">
+                <input type="Date" class="form-control" placeholder="Date" name="date"
+                    value="{{Expenses.date|date:'Y-m-d'}}" required><!--< Boot strap class >-->
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Add Expense"><!--< Boot strap class >-->
+        </form>
+</div>
+</body>
+{% endblock %}<!--<close container  >-->

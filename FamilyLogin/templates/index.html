@@ -1,0 +1,14 @@
+{% extends 'base.html' %}<!--<Access base.html to all pages  >-->
+{% load static %}<!--<load all static files  to this file  >-->
+{% block content %}<!--<open container  >-->
+<link href="{% static '/css/index.css' %}" rel="stylesheet"><!--<load index.css  to this file  >-->
+<body class="bg" style="background:url('static/images/bg.jpg');  background-size:cover;"><!--<css class selector   >-->
+<h2 align="center">Welcome to Family Expense Tracker management</h2>
+
+<a href="{% url 'loginpage' %}" class="btn btn-primary btn-lg btn-block"><!--< Boot strap class >-->
+    <img class='img' src="{% static '/images/getstarted.png' %}"><!--< css class selector   >-->
+</a>
+
+</body>
+{% endblock %}<!--<close container  >-->
+
